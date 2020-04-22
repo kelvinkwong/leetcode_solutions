@@ -2,9 +2,6 @@
 import sys
 
 class Solution:
-    def __init__(self, num):
-        print(f"result {self.intToRoman(num)}")
-
     def intToRoman(self, num):
         conversion = {
             1000: "M",
@@ -33,9 +30,7 @@ class Solution:
                     res_p = res_n
                 elif res_n < 0:
                     break
-                print(res_p)
         return roman_str
 
-
 if __name__ == "__main__":
-    Solution(int(sys.argv[1]))
+    print(Solution.intToRoman(None, int(sys.argv[1])))
