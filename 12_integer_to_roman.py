@@ -3,7 +3,7 @@ import sys
 
 class Solution:
     def intToRoman(self, num):
-        conversion = {
+        roman_conversion_table = {
             1000: "M",
             900: "CM",
             500: "D",
@@ -19,18 +19,18 @@ class Solution:
             1: "I"
         }
 
-        roman_str = ""
+        roman_ans = ""
         res_p = num
-        for conversion_digit, conversion_value in conversion.items():
-            while res_p > 0:
-                res_n = res_p - conversion_digit
-                # print(f"res_n {res_n} = res_p {res_p} - conv {conversion_digit}")
+        for integer in roman_conversion_table.keys():
+            while res_p:
+                res_n = res_p - integer
+                # print(f"res_n {res_n} = res_p {res_p} - conv {integer}")
                 if res_n >= 0:
-                    roman_str += conversion_value
+                    roman_ans += roman_conversion_table[integer]
                     res_p = res_n
-                elif res_n < 0:
+                else:
                     break
-        return roman_str
+        return roman_ans
 
 if __name__ == "__main__":
     print(Solution.intToRoman(None, int(sys.argv[1])))
